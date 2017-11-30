@@ -13,6 +13,10 @@ namespace DapperMircoORM
     /// </summary>
     public class Program
     {
+        /// <summary>
+        /// TODO: Add a real database;
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var guid = Guid.NewGuid();

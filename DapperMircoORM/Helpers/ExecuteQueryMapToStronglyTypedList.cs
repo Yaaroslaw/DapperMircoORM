@@ -10,7 +10,8 @@ namespace DapperMircoORM.Helpers
 {
     /// <summary>
     /// Execute a query and map the results to a strongly typed List
-    /// public static IEnumerable<T> Query<T>(this IDbConnection cnn, string sql, object param = null, SqlTransaction transaction = null, bool buffered = true)
+    /// public static IEnumerable<T> Query<T>(this IDbConnection cnn, string sql, 
+    /// object param = null, SqlTransaction transaction = null, bool buffered = true)
     /// </summary>
     static class ExecuteQueryMapToStronglyTypedList
     {
