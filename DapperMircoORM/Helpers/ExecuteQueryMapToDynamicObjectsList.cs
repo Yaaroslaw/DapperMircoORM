@@ -9,10 +9,11 @@ namespace DapperMircoORM.Helpers
     /// <summary>
     /// Execute a query and map it to a list of dynamic objects
     /// public static IEnumerable<dynamic> Query (this IDbConnection cnn, string sql, 
-    /// f[f[[fobject param = null, SqlTransaction transaction = null, bool buffered = true)
+    /// object param = null, SqlTransaction transaction = null, bool buffered = true)
     /// </summary>
     public class ExecuteQueryMapToDynamicObjectsList
     {
+        //Example usage:
         var rows = connection.Query("select 1 A, 2 B union all select 3, 4");
 
         Assert.Equal(1, (int)rows[0].A);
