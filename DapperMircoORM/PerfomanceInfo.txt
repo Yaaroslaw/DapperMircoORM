@@ -1,0 +1,7 @@
+﻿A key feature of Dapper is performance. The following metrics show how long it takes to execute 500 SELECT statements against a DB and map the data returned to objects.
+
+The performance tests are broken in to 3 lists:
+
+POCO serialization for frameworks that support pulling static typed objects from the DB. Using raw SQL.
+Dynamic serialization for frameworks that support returning dynamic lists of objects.
+Typical framework usage. Often typical framework usage differs from the optimal usage performance wise. Often it will not involve writing SQL.

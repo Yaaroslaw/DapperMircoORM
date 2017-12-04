@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Data.SqlClient;
 using System.Linq;
 using static DapperMircoORM.Helpers.ExecuteQueryMapToStronglyTypedList;
