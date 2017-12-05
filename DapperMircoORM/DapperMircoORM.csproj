@@ -73,6 +73,7 @@
     <Compile Include="Helpers\ExecuteCommandThatReturnsNoResults.cs" />
     <Compile Include="Helpers\ExecuteQueryMapToDynamicObjectsList.cs" />
     <Compile Include="Helpers\ExecuteQueryMapToStronglyTypedList.cs" />
+    <Compile Include="MultiMapping.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

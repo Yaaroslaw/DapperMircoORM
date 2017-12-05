@@ -14,11 +14,16 @@ namespace DapperMircoORM
     public class Program
     {
         /// <summary>
-        /// TODO: Add a real database;
-        /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        /// Parameters are passed in as anonymous classes. This allow you to name your 
+        /// parameters easily and gives you the ability to simply cut-and-paste SQL 
+        /// snippets and run them in Query analyzer.
+        /// new {A = 1, B = "b"} // A will be mapped to the param @A, B to the param @B 
+      /// </summary>
+      /// <param name="args"></param>
+
+    static void Main(string[] args)
         {
+            //TODO: Add a real database;
             var guid = Guid.NewGuid();
             var dog = connection.Query<Dog>("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
 
