@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DapperMircoORM.Helpers
 {
@@ -25,7 +26,7 @@ namespace DapperMircoORM.Helpers
                             select @a a union all select @b 
                             set nocount on 
                             drop table #t", new { a = 1, b = 2 });
-            Assert.Equal(2, count);
+            Assert.AreEqual(2, count);
         }
         /// <summary>
         /// The same signature also allows you to conveniently and efficiently 
@@ -37,7 +38,7 @@ namespace DapperMircoORM.Helpers
             var count = connection.Execute(@"insert MyTable(colA, colB) values (@a, @b)",
                 new[] { new { a = 1, b = 1 }, new { a = 2, b = 2 }, new { a = 3, b = 3 } }
                 );
-            Assert.Equal(3, count); // 3 rows inserted: "1,1", "2,2" and "3,3"
+            Assert.AreEqual(3, count); // 3 rows inserted: "1,1", "2,2" and "3,3"
         }
 
 
