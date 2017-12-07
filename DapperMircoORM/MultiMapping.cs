@@ -30,8 +30,6 @@ namespace DapperMircoORM
                     left join #Users u on u.Id = p.OwnerId 
                     Order by p.Id";
 
-            HardCodeConttection hardCon = new HardCodeConttection();
-            var connection = hardCon.Create();
             var data = connection.Query<Post, User, Post>(sql, (p, user) => { p.Owner = user; return p; });
             var post = data.First();
 

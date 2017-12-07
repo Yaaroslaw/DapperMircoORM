@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data;
 
 namespace DapperMircoORM.Helpers
 {
@@ -21,14 +22,15 @@ namespace DapperMircoORM.Helpers
         [TestMethod]
         public void ExecuteQueryMapToDynamicObjectsListExample()
         {
-            HardCodeConttection hardCon = new HardCodeConttection();
+            HardCodeConttection2 hardCon = new HardCodeConttection2();
             var connection = hardCon.Create();
-            var rows = connection.Query("select 1 A, 2 B union all select 3, 4");
+            IDbCommand command = connection.CreateCommand();
+            command.CommandText = "select 1 A, 2 B union all select 3, 4";
+
+            var rows = command.ExecuteScalar(); 
 
             Assert.AreEqual(1, (int)rows[0].A);
-            Assert.AreEqual(2, (int)rows[0].B);
             Assert.AreEqual(3, (int)rows[1].A);
-            Assert.AreEqual(4, (int)rows[1].B);
         }  
     }
 }

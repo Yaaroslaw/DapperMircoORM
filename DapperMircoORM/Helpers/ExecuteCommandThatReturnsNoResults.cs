@@ -37,8 +37,6 @@ namespace DapperMircoORM.Helpers
         /// </summary>
         public static void NoResultCommandMultipleTimes()
         {
-            HardCodeConttection hardCon = new HardCodeConttection();
-            var connection = hardCon.Create();
             var count = connection.Execute(@"insert MyTable(colA, colB) values (@a, @b)",
                 new[] { new { a = 1, b = 1 }, new { a = 2, b = 2 }, new { a = 3, b = 3 } }
                 );
