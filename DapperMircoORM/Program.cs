@@ -24,6 +24,8 @@ namespace DapperMircoORM
     static void Main(string[] args)
         {
             //TODO: Add a real database;
+            HardCodeConttection hardCon = new HardCodeConttection();
+            var connection = hardCon.Create();
             var guid = Guid.NewGuid();
             var dog = connection.Query<Dog>("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
 

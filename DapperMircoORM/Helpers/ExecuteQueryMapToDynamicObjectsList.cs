@@ -21,6 +21,8 @@ namespace DapperMircoORM.Helpers
         [TestMethod]
         public void ExecuteQueryMapToDynamicObjectsListExample()
         {
+            HardCodeConttection hardCon = new HardCodeConttection();
+            var connection = hardCon.Create();
             var rows = connection.Query("select 1 A, 2 B union all select 3, 4");
 
             Assert.AreEqual(1, (int)rows[0].A);
