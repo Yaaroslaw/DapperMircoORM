@@ -30,7 +30,7 @@ namespace DapperMircoORM
                     left join #Users u on u.Id = p.OwnerId 
                     Order by p.Id";
 
-            var data = connection.Query<Post, User, Post>(sql, (post, user) => { post.Owner = user; return post; });
+            var data = connection.Query<Post, User, Post>(sql, (p, user) => { p.Owner = user; return p; });
             var post = data.First();
 
             Assert.AreEqual("Sams Post1", post.Content);
