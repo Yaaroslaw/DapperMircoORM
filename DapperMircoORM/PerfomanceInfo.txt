@@ -1,4 +1,8 @@
-﻿A key feature of Dapper is performance. The following metrics show how long it takes to execute 500 SELECT statements against a DB and map the data returned to objects.
+﻿
+For more info about perfomance please visit: https://github.com/StackExchange/Dapper/tree/master/Dapper.Tests.Performance
+For more detailed info about Dapper please read it's documentation: https://github.com/StackExchange/Dapper
+
+A key feature of Dapper is performance. The following metrics show how long it takes to execute 500 SELECT statements against a DB and map the data returned to objects.
 
 The performance tests are broken in to 3 lists:
 
@@ -19,3 +23,19 @@ SubSonic CodingHorror------------------107ms
 NHibernate SQL-------------------------104ms	
 Linq 2 SQL ExecuteQuery----------------181ms	
 Entity framework ExecuteStoreQuery-----631ms
+
+2.Performance of SELECT mapping over 500 iterations - dynamic serialization
+
+Method---------------------------------Duration
+Dapper ExecuteMapperQuery (dynamic)------48ms	
+Massive----------------------------------52ms	
+Simple.Data------------------------------95ms	
+
+3. Performance of SELECT mapping over 500 iterations - typical usage
+
+Method-----------------------Duration-------------------------------------Remarks
+Linq 2 SQL CompiledQuery------------------81ms------------Not super typical involves complex code
+NHibernate HQL----------------------------18ms	
+Linq 2 SQL-------------------------------559ms	
+Entity framework-------------------------859ms	
+SubSonic ActiveRecord.SingleOrDefault	3619ms	

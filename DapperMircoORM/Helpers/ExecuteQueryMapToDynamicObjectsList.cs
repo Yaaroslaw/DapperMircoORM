@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
 
@@ -24,6 +20,7 @@ namespace DapperMircoORM.Helpers
         {
             HardCodeConttection2 hardCon = new HardCodeConttection2();
             var connection = hardCon.Create();
+
             IDbCommand command = connection.CreateCommand();
             command.CommandText = "select 1 A, 2 B union all select 3, 4";
 

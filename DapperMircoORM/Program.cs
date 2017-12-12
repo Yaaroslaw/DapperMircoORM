@@ -1,5 +1,4 @@
-﻿ using System;
-using System.Data.SqlClient;
+﻿using System;
 using System.Linq;
 using static DapperMircoORM.Helpers.ExecuteQueryMapToStronglyTypedList;
 
@@ -19,19 +18,19 @@ namespace DapperMircoORM
         /// snippets and run them in Query analyzer.
         /// new {A = 1, B = "b"} // A will be mapped to the param @A, B to the param @B 
       /// </summary>
-      /// <param name="args"></param>
 
     static void Main(string[] args)
         {
-            //TODO: Add a real database;
+            //TODO: Add a real database and connection;
             HardCodeConttection hardCon = new HardCodeConttection();
             var connection = hardCon.Create();
+
             var guid = Guid.NewGuid();
             var dog = connection.Query<Dog>("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
 
             Console.WriteLine($"Dogs count should be 1, actually is: {dog.Count()}");
-            Console.WriteLine($"First dog age should be NULL, actually is: {dog.First().Age}");
-            Console.WriteLine($"First dog id should be: {guid.ToString()} actually is: {dog.First().Id}");
+            Console.WriteLine($"First dog's age should be NULL, actually is: {dog.First().Age}");
+            Console.WriteLine($"First dog's id should be: {guid.ToString()} actually is: {dog.First().Id}");
 
         }
     }
